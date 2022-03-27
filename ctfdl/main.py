@@ -50,7 +50,6 @@ def download(url: str, dir: str = './') -> Optional[str]:
 
 def extract(path: str, extract=False):
     dest = get_taskname(path)
-    print(dest, path)
     os.makedirs(dest, exist_ok=True)
 
     extractor: Optional[Extractor] = None
