@@ -121,7 +121,7 @@ def main():
     elif args.file:
         with open(args.file, 'r') as f:
             for url in f.readlines():
-                execute(url, args)
+                execute(url.strip(), args)
     else:
         for url in args.urls:
             execute(url, args)
