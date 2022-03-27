@@ -24,7 +24,6 @@ optional arguments:
 ```sh
 % ctfdl http://localhost:1234/task-ecb13b07adbb0056ef3a8420679299faaf155894.tar.gz
 ./archives/task-ecb13b07adbb0056ef3a8420679299faaf155894.tar.gz: 100%|█████████████████████| 141/141 [00:00<00:00, 174kB/s]
-task ./archives/task-ecb13b07adbb0056ef3a8420679299faaf155894.tar.gz
 [+] file1 => task/file1
 [+] file2 => task/file2
 Proceed to extract?[Y/n]
