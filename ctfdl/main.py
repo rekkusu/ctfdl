@@ -27,7 +27,6 @@ def execute(url: str, args: argparse.Namespace):
 def download(url: str, dir: str = './') -> Optional[str]:
     try:
         head = requests.head(url, allow_redirects=True)
-        content_length = int(head.headers['content-length'])
     except requests.exceptions.MissingSchema:
         sys.stderr.write('Invalid URL\n')
         return None
@@ -35,8 +34,13 @@ def download(url: str, dir: str = './') -> Optional[str]:
         sys.stderr.write('Invalid URL\n')
         return None
 
-    parse_url = urllib.parse.urlparse(url)
-    filename = os.path.join(dir, os.path.basename(parse_url.path))
+    content_length = int(head.headers['content-length'])
+    if 'content-disposition' in head.headers.keys():
+        disposition = head.headers['content-disposition']
+        filename = re.findall("filename=(.+)", disposition)[0]
+    else:
+        parse_url = urllib.parse.urlparse(url)
+        filename = os.path.join(dir, os.path.basename(parse_url.path))
 
     r = requests.get(url, allow_redirects=True, stream=True)
     progress = tqdm(desc=filename, total=content_length, unit='B', unit_scale=True)
