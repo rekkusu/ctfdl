@@ -15,13 +15,13 @@ class Extractor:
 
 class ZipExtractor(Extractor):
     def __init__(self, path: str):
-        self.archive = zipfile.open(path, 'r')
+        self.archive = zipfile.ZipFile(path, 'r')
 
     def list(self) -> List[str]:
-        return []
+        return self.archive.namelist()
 
-    def extract(self, dest: str) -> List[str]:
-        return []
+    def extract(self, dest: str):
+        self.archive.extractall(dest)
 
 
 class TarExtractor(Extractor):
