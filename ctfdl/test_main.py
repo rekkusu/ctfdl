@@ -17,6 +17,9 @@ import pytest
     ('6adfb183a4a2c94a2f92dab5ade762a47889a5a1-taskname.zip', 'taskname'),
     ('task-name.zip', 'task-name'),
 
+    ('taskname.6adfb183a4a2c94a2f92dab5ade762a47889a5a1.zip', 'taskname'),
+    ('taskname.zip.6adfb183a4a2c94a2f92dab5ade762a47889a5a1', 'taskname'),
+
     # short name
     ('sn_6adfb183a4a2c94a2f92dab5ade762a47889a5a1.tar.gz', 'sn'),
     ('sn.tar.gz-6adfb183a4a2c94a2f92dab5ade762a47889a5a1', 'sn'),
